@@ -43,7 +43,7 @@ onValue(reference, (snapshot => {
 
     var date = months[dateArray[1] - 1] + ' ' + dateArray[0] + ', ' + dateArray[2]
 
-    transactionItem.innerHTML += 
+    transactionItem.innerHTML = 
     '<p>' + i + '</p>' + 
     '<p>'+ transactionDetails.name + '</p>' +
     '<p>' + transactionDetails.transactionID +'</p>' +

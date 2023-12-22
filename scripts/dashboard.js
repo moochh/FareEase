@@ -24,6 +24,20 @@ const driverCount = document.getElementById('driverCount')
 onValue(reference, (snapshot) => {
   userCount.innerHTML = snapshot.child('Users').size
   driverCount.innerHTML = snapshot.child('Drivers').size
+
+  var totalTodayRevenue = 0
+
+  snapshot.child('Driver History').forEach((driver) => {
+    driver.forEach((trip) => {
+      if(trip.val().date == currentDay) {
+        totalTodayRevenue += trip.val().price
+      }
+    })
+  })
+
+  const totalTodayRevenueP = document.getElementById('todayRevenue')
+  totalTodayRevenueP.innerHTML = '₱ ' + totalTodayRevenue.toLocaleString("en-US")
+
 })
 
 // Driver List
@@ -35,7 +49,6 @@ var currentDay = date.getDate() + '-' + monthToday + '-' + date.getFullYear()
 var driverList = document.getElementById("driverList")
 
 onValue(reference, (snapshot) => {
-  var totalTodayRevenue = 0
   var i = 1;
   var todayRevenue = 0
 
@@ -58,13 +71,11 @@ onValue(reference, (snapshot) => {
       })
     })
 
-    totalTodayRevenue += todayRevenue
-
-    driverItem.innerHTML += 
+    driverItem.innerHTML = 
     '<p>'+ driverDetails.firstName + ' ' + driverDetails.lastName +'</p>' +
     '<p> ₱' + todayRevenue + '</p>' +
-    '<div class="driver-status-container">' +
-    '<p> Active </p>' +
+    '<div class="driver-status-container ' + driverDetails.scanningStatus + '">' +
+      '<p>' + driverDetails.scanningStatus + '</p>' +
     '</div>'
 
     driverList.appendChild(driverItem)
@@ -77,9 +88,21 @@ onValue(reference, (snapshot) => {
     }
   })
 
+  for (var j = 0; j < 4 - i; j++) {
+    if (j == 0) {
+      var endOfList = document.createElement("div")
+      endOfList.className = "list-item end-of-list"
 
-  const totalTodayRevenueP = document.getElementById('todayRevenue')
-  totalTodayRevenueP.innerHTML = '₱ ' + totalTodayRevenue.toLocaleString("en-US")
+      endOfList.innerHTML = '<p>- End of list -</p>'
+      
+      driverList.appendChild(endOfList)
+    } else {
+      var placeholder = document.createElement("div")
+
+      driverList.appendChild(placeholder)
+    }
+    
+  }
 
   onValue(reference, (snapshot) => {
     const totalRevenue = snapshot.child('Admin').child("totalRevenue").val()
@@ -116,11 +139,16 @@ onValue(reference, (snapshot) => {
     var userItem = document.createElement("div")
     userItem.className = "list-item" 
 
+    var balanceStatus = 'positive-balance'
 
-    userItem.innerHTML += 
+    if (userDetails.walletBalance < 0) {
+      balanceStatus = 'negative-balance'
+    }
+
+    userItem.innerHTML = 
     '<p>'+ userDetails.firstName + ' ' + userDetails.lastName +'</p>' +
     '<p>' + userDetails.commuterType + '</p>' +
-    '<p> ₱' + userDetails.walletBalance.toLocaleString("en-US") + '</p>' +
+    '<p class="' + balanceStatus +'" > ₱' + userDetails.walletBalance.toLocaleString("en-US") + '</p>' +
     '<p>' + snapshot.child('Commuter History').child(userUID).size +  '</p>' +
     '</div>'
 
@@ -132,6 +160,21 @@ onValue(reference, (snapshot) => {
       return true
     }
   })
+
+  for (var j = 0; j < 4 - i; j++) {
+    if (j == 0) {
+      var endOfList = document.createElement("div")
+      endOfList.className = "list-item end-of-list"
+
+      endOfList.innerHTML = '<p>- End of list -</p>'
+      
+      userList.appendChild(endOfList)
+    } else {
+      var placeholder = document.createElement("div")
+
+      userList.appendChild(placeholder)
+    }
+  }
 })
 
 
@@ -156,7 +199,7 @@ onValue(reference, (snapshot => {
 
     var date = months[dateArray[1] - 1] + ' ' + dateArray[0] + ', ' + dateArray[2]
 
-    transactionItem.innerHTML += 
+    transactionItem.innerHTML = 
     '<p>'+ transactionDetails.name + '</p>' +
     '<p> ₱' + (transactionDetails.amount * 1).toLocaleString("en-US") +  '</p>' +
     '</div>'
@@ -169,4 +212,20 @@ onValue(reference, (snapshot => {
       return true
     }
   })
+
+  for (var j = 0; j < 9 - i; j++) {
+    if (j == 0) {
+      var endOfList = document.createElement("div")
+      endOfList.className = "list-item end-of-list"
+
+      endOfList.innerHTML = '<p>- End of list -</p>'
+      
+      transactionList.appendChild(endOfList)
+    } else {
+      var placeholder = document.createElement("div")
+
+      transactionList.appendChild(placeholder)
+    }
+  }
+  
 }))

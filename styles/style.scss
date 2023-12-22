@@ -2,6 +2,8 @@
 
 @import 'dashboard.scss';
 @import 'drivers.scss';
+@import 'routes.scss';
+@import 'verification.scss';
 
 :root {
   --black: #202020;
@@ -35,6 +37,7 @@ svg {
 
 a {
   text-decoration: none;
+  transition: 0.3s ease-in-out;
 }
 
 h1 {

@@ -247,11 +247,11 @@
     border-radius: 10px;
   }
 
-  &.inactive {
+  &.Inactive {
     p {
-        color: var(--red_dark);
-        background-color: var(--red_light);
-      }
+      color: var(--red_dark);
+      background-color: var(--red_light);
+    }
   }
 }
 
@@ -261,9 +261,11 @@
   flex-direction: column;
   background-color: var(--primary);
   justify-content: space-between;
+  position: relative;
 
   h1 {
     color: white;
+    z-index: 1;
     margin-bottom: 10px;
   }
 
@@ -271,11 +273,36 @@
     color: white;
     flex: 1;
     font-weight: 500;
+    z-index: 1;
     margin-bottom: 10px;
   }
 
-  button {
+  a {
+    z-index: 1;
     width: 100%;
+    background-color: white;
+    text-align: center;
+    color: var(--black);
+    padding: 15px;
+    border-radius: 10px;
+  }
+}
+
+.dashboard-action-card-bg-container {
+  position: absolute;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: end;
+
+  img {
+    width: 80%;
+    height: 20%;
+    z-index: -1;
+    transform: translateX(3px) translateY(3px);
   }
 }
 
@@ -298,5 +325,13 @@
     :nth-child(4) {
       flex: 0.2;
     }
+  }
+}
+
+.end-of-list {
+  p {
+    color: var(--dark);
+    font-style: italic;
+    font-weight: 600;
   }
 }

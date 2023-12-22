@@ -1,0 +1,142 @@
+.verification-buttons-container {
+  display: flex;
+  gap: 30px;
+
+  button {
+    flex: 1;
+    background-color: transparent;
+    border: 2px dashed var(--light);
+    transition: 0.3s ease-in-out;
+
+    p {
+      font-size: 1.2rem;
+      color: var(--dark);
+      transition: 0.3s ease-in-out;
+    }
+
+    &:hover {
+      border: 2px dashed var(--primary);
+
+      p {
+        color: var(--primary);
+      }
+    }
+
+    &.active {
+      background-color: var((--primary));
+      border: none;
+
+      p {
+        color: white;
+      }
+    }
+  }
+}
+
+.result-count-container {
+  margin-top: 30px;
+}
+
+.verification-grid {
+  display: flex;
+  width: 100%;
+  gap: var(--spacing);
+  flex-wrap: wrap;
+
+  
+}
+
+.verification-item {
+  flex-basis: 30%;
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .request-id {
+    font-style: italic;
+    color: var(--dark);
+  }
+
+  button {
+    z-index: 100;
+  }
+}
+
+.document-container {
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed var(--light);
+
+  img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 11px;
+  }
+}
+
+.verification-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.verification-action-container {
+  display: flex;
+  gap: 10px;
+
+  .approve {
+    border-color: var(--green_dark);
+
+    svg {
+      fill: var(--green_dark);
+    }
+
+    &:hover {
+      background-color: var(--green_dark);
+
+    svg {
+      fill: white;
+    }
+  }
+  }
+
+ .deny {
+    border-color: var(--red_dark);
+
+    svg {
+      fill: var(--red_dark);
+    }
+
+    &:hover {
+      background-color: var(--red_dark);
+
+      svg {
+        fill: white;
+      }
+    }
+  }
+
+  button {
+    padding: 5px 20px;
+    border: 1px solid;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+    transition: 0.3s ease-in-out;
+    
+    svg {
+      width: 1rem;
+    }
+  }
+}

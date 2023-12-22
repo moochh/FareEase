@@ -3,6 +3,9 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing);
+  margin-bottom: 30px;
+  height: fit-content;
+  z-index: 3;
 }
 
 .main-list-header {
@@ -15,6 +18,7 @@
   display: flex;
   flex: 3;
   gap: 30px;
+  position: relative;
 
   a {
     background-color: white;
@@ -22,13 +26,14 @@
     padding: 15px 30px;
     border-radius: 10px;
     width: fit-content;
+    z-index: 100;
   }
 }
 
 .action-card-content {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1.5;
   gap: 10px;
 
   h1 {
@@ -44,6 +49,30 @@
 
 .action-card-img-container {
   flex: 3.5;
+  height: 100%;
+  position: relative;
+
+  img {
+    position: absolute;
+    height: calc(100% + 30px + var(--spacing));
+    right: 0;
+    z-index: 1;
+  }
+}
+
+.action-card-bg-container {
+  position: absolute;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+
+  img {
+    width: 90%;
+    transform: translateX(-30px) translateY(30px);
+  }
 }
 
 .main-list-summary-container {
@@ -91,10 +120,14 @@
     }
 
     :nth-child(5) {
-      flex: 0.6;
+      flex: 0.5;
     }
 
     :nth-child(6) {
+      flex: 0.5;
+    }
+
+    :nth-child(7) {
       flex: 0.2;
     }
   }
@@ -103,20 +136,29 @@
 .list-item {
   position: relative;
   align-items: center;
+  display: flex;
+  flex-grow: 0;
 
-  button {
-    position: absolute;
-    background-color: var(--red_dark);
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateX(-100%);
-    transition: 0.3s;
-    left: 0;
-    opacity: 0;
-    pointer-events: none;
+  p {
+    text-overflow: ellipsis;
+    // white-space: nowrap;
+    // hyphens: auto;
+    
   }
+
+  // button {
+  //   position: absolute;
+  //   background-color: var(--red_dark);
+  //   border-radius: 50px;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   transform: translateX(-100%);
+  //   transition: 0.3s;
+  //   left: 0;
+  //   opacity: 0;
+  //   pointer-events: none;
+  // }
 
   img {
     width: 18px;
@@ -154,7 +196,7 @@
       }
   
       :nth-child(6) {
-        flex: 0.2;
+        flex: 0.3;
       }
     }
 }
@@ -181,5 +223,11 @@
     :nth-child(5) {
       flex: 0.4;
     }
+  }
+}
+
+.list-item {
+  .negative-balance {
+    color: var(--red_dark);
   }
 }

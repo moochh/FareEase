@@ -49,14 +49,15 @@ onValue(reference, (snapshot) => {
 
     console.log(todayRevenue)
 
-    driverItem.innerHTML += 
+    driverItem.innerHTML = 
     '<p>' + i + '</p>' + 
     '<p>'+ driverDetails.firstName + ' ' + driverDetails.lastName +'</p>' +
     '<p>' + driverUID +'</p>' +
+    '<p>' + driverDetails.route +'</p>' +
     '<p> ₱' + todayRevenue + '</p>' +
     '<p> ₱' + driverDetails.revenue + '</p>' +
-    '<div class="driver-status-container">' +
-    '<p> Active </p>' +
+    '<div class="driver-status-container ' + driverDetails.scanningStatus + '">' +
+    '<p>' + driverDetails.scanningStatus + '</p>' +
     '</div>'
 
     driverList.appendChild(driverItem)

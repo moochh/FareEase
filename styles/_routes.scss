@@ -1,0 +1,354 @@
+.routes-body {
+  display: flex;
+  width: 100%;
+  gap: var(--spacing);
+  z-index: 100;
+  position: relative;
+  padding-bottom: 30px;
+}
+
+.routes-container {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);  
+}
+
+.routes-placeholder {
+  flex: 3;
+}
+
+.price-placeholder {
+  flex: 2;
+}
+
+.price-body-container {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+}
+
+.price-container {
+  height: fit-content;
+  
+  .list-item,
+  .list-header-container {
+    :nth-child(1) {
+      flex: 1;
+    }
+
+    :nth-child(2) {
+      flex: 0.6;
+    }
+
+    :nth-child(3) {
+      flex: 0.6;
+    }
+  }
+}
+
+.list-title {
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    padding: 0 10px;
+
+    :hover {
+      cursor: pointer;
+    }
+  }
+
+  svg {
+    height: 1.1rem;
+    width: 1.1rem;
+  }
+}
+
+.route-container {
+  .list-item,
+  .list-header-container {
+    justify-content: space-between;
+
+    :nth-child(2) {
+      text-align: right;
+    }
+  }
+
+  .list-content-container,
+  .list-header-container {
+    display: none;
+  }
+
+  .list-content-container {
+    gap: 30px;
+  }
+
+  button,
+  a {
+    svg {
+      transition: 0.3s;
+    }
+    
+    &:hover {
+      svg {
+        fill: var(--primary);
+      }
+    }
+  }
+}
+
+.route-name {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    animation-duration: 1s;
+    animation-name: none;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes down {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes up {
+  from {
+    transform: rotate(90deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.add-new-route {
+  padding: 30px;
+  transition: 0.3s ease-in-out;
+  border: 2px dashed var(--light);
+  background-color: transparent;
+
+  h1 {
+    text-align: center;
+    color: var(--dark);
+    transition: 0.3s ease-in-out;
+  }
+
+  &:hover {
+    h1 {
+      color: var(--primary);
+    }
+
+    border: 2px dashed var(--primary);
+  }
+}
+
+// .add-new-route-outline {
+//   padding: 20px;
+//   border-radius: 15px;
+//   transition: 0.3s ease-in-out;
+// }
+
+// .price-list-display {
+//   display: none;
+// }
+
+.price-input-container {
+  display: none;
+
+  .list-item {
+    gap: 10px;
+
+    * {
+      width: 80px;
+    }
+  }
+
+  .input-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    border: 1px solid var(--light);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+
+    span {
+      position: absolute;
+      color: var(--dark);
+    }
+  }
+
+  input {
+    all: unset;
+    transform: translateX(20px);
+    width: 50px;
+  }
+
+  button {
+    width: fit-content;
+    align-self: flex-end;
+    background-color: var(--primary);
+    padding: 15px 30px;
+    color: white;
+    margin-top: 20px;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      background-color: black;
+    }
+  }
+}
+
+#editPricingButton {
+  svg {
+    transition: 0.3s ease-in-out;
+  }
+  
+  &:hover {
+    svg {
+      fill: var(--primary);
+    }
+  }
+}
+
+.price-note-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  :nth-child(1) {
+    font-weight: 900;
+  }
+
+  p {
+    color: var(--dark);
+    font-weight: 600;
+    font-style: italic;
+  }
+}
+
+.new-route-container {
+  .list-title {
+    width: 100%;
+
+    .route-name {
+      width: 50%;
+    }
+
+    input {
+      font-size: 1.5rem;
+      width: 100%;
+    }
+  }
+
+  .list-header-container,
+  .list-content-container {
+    display: flex;
+    gap: 10px;
+  }
+
+  input {
+    all: unset;
+    border: 1px solid var(--light);
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .list-item {
+    gap: 30px;
+    position: relative;
+
+    input {
+      flex: 0.5;
+    }
+
+    &:hover {
+      .delete-landmark-button {
+        opacity: 1;
+        pointer-events: all;
+        transform: translate(50%);
+      }
+    }
+  }
+
+  .list-header-container {
+    span {
+      font-size: inherit;
+      color: inherit;
+      font-style: italic;
+      font-weight: inherit;
+    }
+  }
+}
+
+.add-route-button {
+  align-self: flex-end;
+  background-color: var(--primary);
+  padding: 15px 70px;
+  color: white;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    background-color: black;
+  }
+}
+
+.add-another-landmark {
+  transition: 0.3s ease-in-out;
+  border: 2px dashed var(--light);
+  background-color: transparent;
+  text-align: center;
+  color: var(--dark);
+  transition: 0.3s ease-in-out;
+  width: 100%;
+
+  &:hover {
+    color: var(--primary);
+    border: 2px dashed var(--primary);
+  }
+}
+
+.delete-landmark-button {
+  height: 2.5rem;
+  width: 2.5rem;
+  position: absolute;
+  background-color: var(--red_dark);
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  right: 50%;
+  padding: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%);
+
+  svg {
+    fill: white;
+    width: 100%;
+  }
+}
+
+.route-error {
+  text-align: right;
+  color: var(--red_dark);
+  font-weight: 600;
+  font-style: italic;
+  display: none;
+}

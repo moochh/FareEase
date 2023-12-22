@@ -51,13 +51,18 @@ onValue(reference, (snapshot) => {
     var userItem = document.createElement("div")
     userItem.className = "list-item" 
 
+    var balanceStatus = 'positive-balance'
 
-    userItem.innerHTML += 
+    if (userDetails.walletBalance < 0) {
+      balanceStatus = 'negative-balance'
+    }
+
+    userItem.innerHTML = 
     '<p>' + i + '</p>' + 
     '<p>'+ userDetails.firstName + ' ' + userDetails.lastName +'</p>' +
     '<p>' + userUID +'</p>' +
     '<p>' + userDetails.commuterType + '</p>' +
-    '<p> ₱' + userDetails.walletBalance.toLocaleString("en-US") + '</p>' +
+    '<p class="' + balanceStatus + '"> ₱' + userDetails.walletBalance.toLocaleString("en-US") + '</p>' +
     '<p>' + snapshot.child('Commuter History').child(userUID).size +  '</p>' +
     '</div>'
 

@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/style.css">
-  <title>FareEase | Drivers</title>
   <link rel="icon" href="assets/icons/FareEase Icon-28.png" type="image/icon type">
-  <script type="module" src="scripts/drivers.js"></script>
+  <title>FareEase | User Verification</title>
+  <script type="module" src="scripts/verification.js"></script>
 </head>
 <body class="drivers-body">
 <div class="navbar-holder">
@@ -40,7 +40,7 @@
       <p>Dashboard</p>
     </a>
 
-    <a href="" class="navbar-item active">
+    <a href="drivers.html" class="navbar-item">
       <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
         <path
           d="M377.69,477h-47a9.69,9.69,0,0,0-1.57-.73c-14.73-4.31-22.26-14.22-22.36-29.49,0-2.45,0-4.89,0-7.36H193.29a35.36,35.36,0,0,1,0,5.58c-.93,5.46-1.26,11.2-3.28,16.25-3.62,9-11.7,13.15-20.61,15.75h-47c-9.06-2.75-17.29-7.13-20.64-16.42-2.13-5.94-2.25-12.63-3-19-.24-2.08-.39-3.37-2.78-4.15C72.86,429.87,61,413.37,61,389q0-66.71,0-133.42V250c-3.16,0-5.79,0-8.42,0-17.24-.26-29.2-12.15-29.45-29.35q-.14-9.09,0-18.17a47,47,0,0,1,33.76-44.91c3.4-1,4.2-2.52,4.18-5.84q-.2-39.22,0-78.46a62.4,62.4,0,0,1,.7-11C66.05,38.61,85.2,23,109.85,23q139.62,0,279.22,0c30,0,50,20,50,50,0,26.15.08,52.31-.07,78.46,0,3.49.79,5.18,4.38,6.14,9.11,2.42,16.3,7.88,22.51,14.94S474.84,188,477,196.8v29.26a6,6,0,0,0-.63,1.16C471.53,243,462.13,250,445.78,250h-6.69v6q0,66.95,0,133.89c0,23.42-12.66,40.72-34.54,47.43-2.41.73-3,1.82-3.24,4.26-.63,6.39-.83,13.08-3,19C395,469.86,386.75,474.25,377.69,477ZM250.49,136.5q-60.26,0-120.52,0c-19.44,0-31.26,11.71-31.3,31.1q-.08,44.54,0,89.08c0,19.36,11.86,31.19,31.24,31.19q120.09.06,240.17,0a39.54,39.54,0,0,0,10.07-1.12c13.32-3.52,21.18-14.5,21.22-29.54q.11-45,0-90a38,38,0,0,0-1.17-9.63c-3.54-13.23-14.43-21.07-29.15-21.08Q310.75,136.46,250.49,136.5ZM250,60.91q-37.91,0-75.8,0c-10.2,0-20.41-.26-30.58.3-11.17.61-19.18,6.78-23.54,16.87-4.29,9.93-3,19.67,3.63,28.41,6.36,8.33,15.16,11.18,25.3,11.18q101.07-.06,202.13,0c.74,0,1.48,0,2.21,0,21-1,34-19.38,27.12-38.41-4.19-11.55-14.54-18.28-28.52-18.3Q301,60.85,250,60.91ZM146,382.29a28.31,28.31,0,1,0-28.21-28.06A28.41,28.41,0,0,0,146,382.29ZM382.29,354a28.43,28.43,0,0,0-28-28.36c-15.36-.25-28.56,12.86-28.57,28.36a28.3,28.3,0,0,0,56.6,0Z" />
@@ -95,77 +95,23 @@
 <div class="navbar-placeholder"></div>
 
 <div class="drivers-body-container">
-  <h1>Drivers</h1>
+  <h1 id="pageHeader">Verify Your Users</h1>
 
-  <div class="main-list-header">
-    <div class="action-card content-container">
-      <div class="action-card-content">
-        <h1>New Drivers?</h1>
-        <p>Verify your new drivers here so they can start scanning soon!</p>
-        <a href="verification.html?list=Driver">Verify Drivers</a>
-      </div>
+  <div class="verification-buttons-container">
+    <button class="content-container" id="driverButton">
+      <p>Driver Applicants</p>
+    </button>
 
-      <div class="action-card-img-container">
-        <img src="assets/illustrations/undraw_bus_stop_re_h8ej (2).svg" alt="">
-      </div>
-
-      <div class="action-card-bg-container">
-        <img src="assets/Extras/Group 186.png" alt="">
-      </div>
-    </div>
-
-    <div class="main-list-summary-container">
-      <div class="dashboard-summary-item">
-        <div class="dashboard-summary-item-icon-container">
-          <img src="assets/icons/money.png">
-        </div>
-        <div class="dashboard-summary-item-value">
-          <h1>Total Revenue</h1>
-          <p id="totalRevenue">₱ 0</p>
-        </div>
-      </div>
-
-      <div class="dashboard-summary-item">
-        <div class="dashboard-summary-item-icon-container">
-          <img src="assets/icons/steering-wheel.png">
-        </div>
-        <div class="dashboard-summary-item-value">
-          <h1>Drivers</h1>
-          <p id="driverCount">0</p>
-        </div>
-      </div>
-    </div>
+    <button class="content-container" id="commuterButton">
+      <p>Commuter Discount Requests</p>
+    </button>
   </div>
 
-  <div class="main-list-container content-container" id="listContainer">
-    <div class="list-header-container">
-      <p>#</p>
-      <p>Name</p>
-      <p>Driver ID</p>
-      <p>Route</p>
-      <p>Today's Revenue</p>
-      <p>Total Revenue</p>
-      <p>Status</p>
-    </div>
-
-    <div class="list-content-container" id="driverList">
-      <!-- <div class="list-item">
-        <p>1</p>
-        <p>Antonio Luna</p>
-        <p>9M47rwbdKCW4CnR4N22A2s8ZrLM2</p>
-        <p>₱4,006</p>
-        <p>₱41,426</p>
-
-        <div class="driver-status-container">
-          <p>Active</p>
-        </div>
-
-        <button type="button" class="remove-button">
-          <img src="assets/icons/trash-can.png" alt="">
-        </button>
-      </div> -->
-    </div>
+  <div class="result-count-container">
+    <h1 id="applicantCount">Showing 0 result(s)</h1>
   </div>
+
+  <div class="verification-grid" id="verificationGrid"></div>
 </div>
 </body>
 </html>
