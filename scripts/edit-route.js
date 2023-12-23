@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getDatabase, ref, onValue, set, update, remove } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+// import collect from 'https://cdnjs.cloudflare.com/ajax/libs/collect.js/4.36.1/collect.js'
 
 const firebaseConfig = {
   apiKey: "AIzaSyBO6C24jQuAluEmq1I2aZ68f3N4COpI3Co",
@@ -33,8 +34,14 @@ const addAnotherLandmarkButton = document.getElementById('addAnotherLandmarkButt
 const addRouteButton = document.getElementById('addRouteButton')
 const newRouteContainer = document.getElementById('newRouteContainer')
 
+var routesList = []
+
 onValue(reference, (snapshot) => {
   newRouteContainer.innerHTML = ''
+
+  snapshot.child('Routes/').forEach((route) => {
+    routesList.push(route.key)
+  })
 
   snapshot.child('Routes/' + routeKey).forEach((landmark) => {
     const landmarkItem = document.createElement('div')
@@ -98,6 +105,7 @@ addRouteButton.onclick = function() {
   const specialCharacters = new RegExp(/[A-Za-z\!\@\#\$\%\^\&\*\)\(+\=_-\s]/)
   var invalidFormat = true
   var inputsComplete = true
+  var routeExists = false
 
   var newRouteValues = {}
   
@@ -106,8 +114,8 @@ addRouteButton.onclick = function() {
   var previousLandmark = ''
   var previousLandmarkCounter = 0
 
-
   for (var i = 0; i < allInputs.length - 1; i++) {
+    var invalidFormat = true
     const inputContainer = allInputs[i]
     const input1 = inputContainer.getElementsByTagName('input')[0]
     const input2 = inputContainer.getElementsByTagName('input')[1]
@@ -142,28 +150,16 @@ addRouteButton.onclick = function() {
 
     if(landmarkName == '') {
       input1.style.border = '1px solid var(--red_dark)'
-      inputError.style.display = 'block'
       inputsComplete = false
     } else {
       input1.style.border = '1px solid var(--light)'
-      inputError.style.display = 'none'
     }
 
-    if(coordinates == '') {
+    if(coordinates == '' || invalidFormat) {
       input2.style.border = '1px solid var(--red_dark)'
-      inputError.style.display = 'block'
       inputsComplete = false
     } else {
       input2.style.border = '1px solid var(--light)'
-      inputError.style.display = 'none'
-    }
-
-    if (invalidFormat) {
-      input2.style.border = '1px solid var(--red_dark)'
-      inputError.style.display = 'block'
-    } else {
-      input2.style.border = '1px solid var(--light)'
-      inputError.style.display = 'none'
     }
 
     beginningIndex++
@@ -181,16 +177,38 @@ addRouteButton.onclick = function() {
     routeNameInput.style.border = '1px solid var(--light)'
   }
 
-  if (!invalidFormat && inputsComplete) {
+  if(invalidFormat || !inputsComplete) {
+    inputError.style.display = 'block'
+  } else {
+    inputError.style.display = 'none'
+  }
+
+  routesList.forEach((route) => {
+    if(routeKey != route && routeNameInput.value == route) {
+      routeExists = true
+    }
+  })
+
+  if (routeExists) {
+    routeNameInput.style.border = '1px solid var(--red_dark)'
+    inputError.innerHTML = 'Route already exists. <br> Some input fields might be empty or coordinates format is invalid!'
+  } else {
+    routeNameInput.style.border = '1px solid var(--light)'
+    inputError.innerHTML = 'Some input fields might be empty or coordinates format is invalid!'
+  } 
+
+  if (!invalidFormat && inputsComplete && !routeExists) {
     remove(ref(database, 'Routes/' + routeKey))
     set(ref(database, 'Routes/' + routeNameInput.value), newRouteValues)
 
-    console.log('add')
+    onValue(ref(database, 'Drivers/'), (snapshot) => {
+      snapshot.forEach((driver) => {
+        if (driver.val().route == routeKey) {
+          update(ref(database, 'Drivers/' + driver.key), {route : routeNameInput.value})
+        }
+      })
+    })
 
     window.location.replace("routes.html");
-  } else {
-    console.log('not update')
-  }
-
-  console.log(newRouteValues)
+  } 
 }

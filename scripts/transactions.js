@@ -55,4 +55,11 @@ onValue(reference, (snapshot => {
 
     i++
   })
+
+  var endOfList = document.createElement("div")
+  endOfList.className = "list-item end-of-list"
+
+  endOfList.innerHTML = '<p>- End of list -</p>'
+  
+  transactionList.appendChild(endOfList)
 }))

@@ -71,5 +71,12 @@ onValue(reference, (snapshot) => {
     i++
   })
 
+  var endOfList = document.createElement("div")
+  endOfList.className = "list-item end-of-list"
+
+  endOfList.innerHTML = '<p>- End of list -</p>'
+  
+  userList.appendChild(endOfList)
+
   userCount.innerHTML = (i - 1).toLocaleString("en-US")
 })

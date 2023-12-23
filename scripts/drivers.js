@@ -66,6 +66,13 @@ onValue(reference, (snapshot) => {
     todayRevenue = 0
   })
 
+  var endOfList = document.createElement("div")
+  endOfList.className = "list-item end-of-list"
+
+  endOfList.innerHTML = '<p>- End of list -</p>'
+  
+  driverList.appendChild(endOfList)
+
   const driverCount = document.getElementById('driverCount')
   driverCount.innerHTML = (i - 1).toLocaleString("en-US")
 

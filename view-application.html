@@ -4,14 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/style.css">
-  <title>FareEase | Create a New Route</title>
   <link rel="icon" href="assets/icons/FareEase Icon-28.png" type="image/icon type">
-  <script type="module" src="scripts/edit-route.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/collect.js/4.36.1/collect.min.js"
-    integrity="sha512-aub0tRfsNTyfYpvUs0e9G/QRsIDgKmm4x59WRkHeWUc3CXbdiMwiMQ5tTSElshZu2LCq8piM/cbIsNwuuIR4gA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>FareEase | View Application</title>
+  <script type="module" src="scripts/view-application.js"></script>
 </head>
-<body class="drivers-body">
+<body class="drivers-body view-application-no-scrollbar">
 <div class="navbar-holder">
   <div class="navbar-container">
   <div class="navbar-logo">
@@ -97,45 +94,56 @@
 
 <div class="navbar-placeholder"></div>
 
-<div class="drivers-body-container">
-  <h1>Edit Route</h1>
+<div class="drivers-body-container view-application-body">
+  <h1 id="pageHeader">View Application</h1>
 
-  <div class="routes-body">
-    <div class="routes-container" id="routesContainer">
-      <div class="new-route-container route-container content-container">
-        <div class="list-title">
-          <div class="route-name">
-            <input type="text" id="routeNameInput" placeholder="Route Name">
-          </div>
-        </div>
+  <div class="application-documents-container">
+    <div class="content-container document-image-container">
+      <a href="" target="_blank" class="document-container" id="documentImageLink">
+        <img src="assets/icons/photo-27.png" class="display-image" id="documentImage1">
+        <!-- <img src="/assets/Commuter 5  Profile.png" class="focus-image"> -->
 
-        <div class="list-header-container">
-          <p>Landmark, City</p>
-          <p>Latitude, Longitude <span>(Ex. 12.581234, 120.412567)</span></p>
-        </div>
+        <img src="assets/icons/photo-27.png" class="display-image" id="documentImage2">
+        <!-- <img src="/assets/frog in red for 0.png" class="focus-image"> -->
+      </a>
 
-        <div class="list-content-container" id="newRouteContainer">
-          <!-- <div class="list-item" id="initialLandmark">
-            <input type="text" id="" placeholder="Landmark Name">
-            <input type="text" id="" placeholder="Coordinates">
-            <button class="delete-landmark-button" id="initialDeleteLandmarkButton">
-                      <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
-                        <path
-                          d="M7,242.89c3.07-7,5.16-14.65,9.41-20.83C25.5,208.83,39,202.91,54.93,202.54c.94,0,1.89,0,2.84,0q191.77,0,383.55,0c13.3,0,25,3.65,35.25,12.42,20.2,17.31,20.21,52,0,69.25a49.64,49.64,0,0,1-33.36,12.37q-193.66,0-387.34,0c-24.69,0-42.44-14.6-48.07-38.69a8.21,8.21,0,0,0-.8-1.63Z" />
-                      </svg>
-                    </button>
-          </div> -->
+      <button id="previousImage">
+        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+          <path
+            d="M151.51,15c9.29,2.22,16,8.23,22.49,14.79Q272,128,370.18,226.08c15.22,15.21,15.26,31.66.12,46.8Q269.77,373.43,169.2,474c-12.64,12.64-30.08,13.4-42.2,2a29,29,0,0,1-2.92-39.42,58.18,58.18,0,0,1,4.67-5q88.86-88.9,177.79-177.76a35.86,35.86,0,0,1,4.74-3.37c-2.18-2.29-3.38-3.61-4.65-4.87Q217.28,156.12,127.87,66.76c-7.88-7.87-11.8-17-9.45-28.14,2.3-10.88,8.91-18.12,19.32-21.92l4.61-1.7Z" />
+        </svg>
+      </button>
 
-          <button class="add-another-landmark" id="addAnotherLandmarkButton">Add another landmark</button>
-        </div>
-      </div>
-
-      <p class="route-error" id="inputError">Some input fields might be empty or coordinates format is invalid!</p>
-
-      <button class="add-route-button" id="addRouteButton">Update Route</button>
+      <button id="nextImage">
+        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+          <path
+            d="M151.51,15c9.29,2.22,16,8.23,22.49,14.79Q272,128,370.18,226.08c15.22,15.21,15.26,31.66.12,46.8Q269.77,373.43,169.2,474c-12.64,12.64-30.08,13.4-42.2,2a29,29,0,0,1-2.92-39.42,58.18,58.18,0,0,1,4.67-5q88.86-88.9,177.79-177.76a35.86,35.86,0,0,1,4.74-3.37c-2.18-2.29-3.38-3.61-4.65-4.87Q217.28,156.12,127.87,66.76c-7.88-7.87-11.8-17-9.45-28.14,2.3-10.88,8.91-18.12,19.32-21.92l4.61-1.7Z" />
+        </svg>
+      </button>
     </div>
 
-    <div class="price-body-container">
+    <div class="content-container application-details-container" id="applicationDetailsContainer">
+      <p class="request-id" id="requestID"></p>
+      <h1 id="name"></h1>
+
+      <div class="application-details-row">
+        <p>Sex</p>
+        <p id="sex"></p>
+      </div>
+
+      <div class="application-details-row">
+        <p>Birthday</p>
+        <p id="birthday"></p>
+      </div>
+
+      <div class="application-buttons-container">
+        <h1 id="verificationNote"></h1>
+
+        <div class="button-container">
+          <button id="applicationDeny">Deny</button>
+          <button id="applicationApprove">Approve</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

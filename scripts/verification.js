@@ -98,7 +98,7 @@ function readDatabase() {
           '<p class="request-id">' + id + '</p>' +
           '<p>' + name + '</p>' +
 
-          '<a href="" class="document-container">' +
+          '<a href="view-application.html?id=' + applicant.key + '&type=' + listValue + '" class="document-container">' +
             '<img src="/assets/icons/photo-27.png" id="IDImg-' + applicant.key + '">' +
           '</a>' +
 
