@@ -145,6 +145,34 @@
   display: flex;
   justify-content: space-between;
   gap: 60px;
+
+  :nth-child(1) {
+    .dashboard-summary-item-icon-container {
+      background-color: #ffc300;
+      box-shadow: 0 3px 10px #ffc300;
+    }
+  }
+
+  :nth-child(2) {
+    .dashboard-summary-item-icon-container {
+      background-color: #ffc300;
+      box-shadow: 0 3px 10px #ffc300;
+    }
+  }
+
+  :nth-child(3) {
+    .dashboard-summary-item-icon-container {
+      background-color: #0dac86;
+      box-shadow: 0 3px 10px #0dac86;
+    }
+  }
+
+  :nth-child(4) {
+    .dashboard-summary-item-icon-container {
+      background-color: #0056c7;
+      box-shadow: 0 3px 10px #0056c7;
+    }
+  }
 }
 
 .dashboard-summary-item {

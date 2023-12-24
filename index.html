@@ -3,10 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/style.css">
   <link rel="icon" href="assets/icons/FareEase Icon-28.png" type="image/icon type">
+  <script type="module" src="scripts/index.js"></script>
   <title>Document</title>
 </head>
-<body>
-  <a href="dashboard.html">Dashboard</a>
+<body class="login-body">
+  <div class="login-logo-container">
+    <img src="assets/icons/Logo Admin-21.png" alt="">
+  </div>
+  <div class="password-input-container content-container">
+    <h1>Enter Password</h1>
+
+    <div class="password-input">
+      <p>Password</p>
+
+      <div>
+        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+          <path
+            d="M116.49,476c-8.5-1.89-16.82-4.24-24-9.46-14.94-10.87-22.8-25.53-22.84-44q-.15-89.57,0-179.13A51.09,51.09,0,0,1,77.77,215c10.08-15.49,24.44-24,42.94-24.78,11-.48,22.07-.09,33.79-.09v-4.89c0-21.61.31-43.24-.07-64.85C153.62,74.06,185.8,35.91,230,26.18,280.75,15,332.4,47.74,343.36,98.53a108.44,108.44,0,0,1,2,21.45c.25,21.62.09,43.24.09,64.86v5.23h31.17c11.53,0,22.14,3.1,31.45,9.94,15.05,11.07,22.29,26.1,22.28,44.73q0,88.23,0,176.47a69.51,69.51,0,0,1-.76,10.09,52.76,52.76,0,0,1-43.15,43.86,26.08,26.08,0,0,0-2.92.84ZM250.12,225.37q-62.34,0-124.66,0c-13.52,0-20.46,6.88-20.46,20.3q0,87.36,0,174.71c0,13.42,6.94,20.31,20.45,20.31H374.33c13.82,0,20.68-6.81,20.68-20.53q0-87.14,0-174.27c0-13.72-6.86-20.52-20.67-20.53ZM310,189.87c.06-1,.15-1.76.15-2.47,0-23.52.06-47-.08-70.57a51.94,51.94,0,0,0-1.45-11.77c-7.51-31.4-39.38-51.25-71-44.35-26.91,5.88-47,28-47.52,53.68-.54,24.83-.12,49.68-.11,74.53,0,.25.23.5.44,1Z" />
+          <path
+            d="M265.79,347.54c0-5.32.16-10.64-.1-16a7,7,0,0,0-2.12-4.59c-10.73-9-14.34-23-8.82-35.21a29.64,29.64,0,0,1,32.82-17,29.34,29.34,0,0,1,23.69,27.42c.6,9.81-3.19,18-10.74,24.15a6.76,6.76,0,0,0-2.78,6c.11,10.5.18,21,0,31.5a15.88,15.88,0,0,1-30.25,6.48,20.92,20.92,0,0,1-1.6-7.3C265.63,357.91,265.79,352.72,265.79,347.54Z" />
+        </svg>
+
+        <input type="password" id="passwordInput">
+      </div>
+
+    </div>
+
+    <!-- <button id="login">Login</button> -->
+
+    <span id="passwordIncorrect"></span>
+  </div>
 </body>
 </html>

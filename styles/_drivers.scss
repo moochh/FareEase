@@ -33,7 +33,7 @@
 .action-card-content {
   display: flex;
   flex-direction: column;
-  flex: 1.5;
+  flex: 1.8;
   gap: 10px;
 
   h1 {
@@ -229,5 +229,53 @@
 .list-item {
   .negative-balance {
     color: var(--red_dark);
+  }
+}
+
+.drivers-summary {
+  :nth-child(1) {
+    .dashboard-summary-item-icon-container {
+      background-color: #ffc300;
+      box-shadow: 0 3px 10px #ffc300;
+    }
+  }
+
+  :nth-child(2) {
+    .dashboard-summary-item-icon-container {
+      background-color: #0dac86;
+      box-shadow: 0 3px 10px #0dac86;
+    }
+  }
+}
+
+.users-summary {
+  :nth-child(1) {
+    .dashboard-summary-item-icon-container {
+      background-color: #28d41c;
+      box-shadow: 0 3px 10px #28d41c;
+    }
+  }
+
+  :nth-child(2) {
+    .dashboard-summary-item-icon-container {
+      background-color: var(--primary);
+      box-shadow: 0 3px 10px var(--primary);
+    }
+  }
+}
+
+.transactions-summary {
+  :nth-child(1) {
+    .dashboard-summary-item-icon-container {
+      background-color: #ffc300;
+      box-shadow: 0 3px 10px #ffc300;
+    }
+  }
+
+  :nth-child(2) {
+    .dashboard-summary-item-icon-container {
+      background-color: #b017b6;
+      box-shadow: 0 3px 10px #b017b6;
+    }
   }
 }
