@@ -134,7 +134,7 @@ function readDatabase() {
             deleteRequest(applicantDetails.commuterID)
           }
         }
-
+        
         deny.onclick = function() {
           update(ref(database, listValue + ' Applicants/' + applicant.key), {status: 'denied'})
         }
@@ -156,7 +156,8 @@ function readDatabase() {
 }
 
 function updateUser(commuterID, commuterType) {
-  update(ref(database, 'Users/' + commuterID), {commuterType : commuterType})
+  update(ref(database, 'Users/' + commuterID), {commuterType : commuterType, verified : true})
+  
 }
 
 function deleteRequest(commuterID) {
