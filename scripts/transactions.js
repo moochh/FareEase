@@ -27,7 +27,7 @@ var transactionCount = document.getElementById("transactionCount")
 onValue(reference, (snapshot => {
   transactionCount.innerHTML = snapshot.child('Admin Transaction History').size.toLocaleString("en-US")
 
-  totalAmount.innerHTML = '₱ ' + snapshot.child('Admin').child('totalTransactions').val().toLocaleString("en-US")
+  totalAmount.innerHTML = '<span>₱</span> ' + snapshot.child('Admin').child('totalTransactions').val().toLocaleString("en-US")
 
   var i = 1;
 
@@ -40,7 +40,6 @@ onValue(reference, (snapshot => {
     transactionItem.className = "list-item" 
 
     var dateArray = transactionDetails.date.split('-')
-
     var date = months[dateArray[1] - 1] + ' ' + dateArray[0] + ', ' + dateArray[2]
 
     transactionItem.innerHTML = 

@@ -111,7 +111,7 @@
   justify-self: end;
   position: absolute;
   bottom: 0;
-  transform: translateY(-100%) translateY(-30px);
+  transform: translateY(-100%);
 }
 .navbar-logout .navbar-item {
   padding-bottom: 0;
@@ -250,6 +250,10 @@
 }
 .dashboard-summary-item-value p {
   font-size: 2.4rem;
+}
+.dashboard-summary-item-value p span {
+  font-size: inherit;
+  color: var(--dark);
 }
 
 .dashboard-lists-container {

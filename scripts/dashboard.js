@@ -36,7 +36,7 @@ onValue(reference, (snapshot) => {
   })
 
   const totalTodayRevenueP = document.getElementById('todayRevenue')
-  totalTodayRevenueP.innerHTML = '₱ ' + totalTodayRevenue.toLocaleString("en-US")
+  totalTodayRevenueP.innerHTML = '<span>₱</span> ' + totalTodayRevenue.toLocaleString("en-US")
 
 })
 
@@ -108,7 +108,7 @@ onValue(reference, (snapshot) => {
     const totalRevenue = snapshot.child('Admin').child("totalRevenue").val()
 
     const totalRevenueP = document.getElementById('totalRevenue')
-    totalRevenueP.innerHTML = '₱ ' + (totalRevenue.toLocaleString("en-US"))
+    totalRevenueP.innerHTML = '<span>₱</span> ' + (totalRevenue.toLocaleString("en-US"))
   });
 });
 
