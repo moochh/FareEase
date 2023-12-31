@@ -27,6 +27,12 @@
     border-radius: 10px;
     width: fit-content;
     z-index: 100;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: var(--black);
+      color: white;
+    }
   }
 }
 

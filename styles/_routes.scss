@@ -203,6 +203,11 @@
     padding: 10px;
     border-radius: 10px;
     width: 100%;
+    transition: 0.3s;
+
+    &:has(> input:focus) {
+      border: 1px solid var(--primary);
+    }
 
     span {
       position: absolute;
@@ -214,6 +219,7 @@
     all: unset;
     transform: translateX(20px);
     width: 50px;
+    transition: 0.3s;
   }
 
   button {
@@ -284,6 +290,11 @@
     border: 1px solid var(--light);
     padding: 10px;
     border-radius: 10px;
+    transition: 0.3s;
+
+    &:focus {
+      border: 1px solid var(--primary);
+    }
   }
 
   .list-item {
