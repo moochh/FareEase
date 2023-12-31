@@ -909,10 +909,17 @@
   opacity: 0;
   pointer-events: none;
   transform: translateX(-50%);
+  transition: 0.3s;
 }
 .delete-landmark-button svg {
   fill: white;
   width: 100%;
+}
+.delete-landmark-button:hover {
+  background-color: var(--black);
+}
+.delete-landmark-button:hover svg {
+  fill: white !important;
 }
 
 .route-error {
