@@ -96,7 +96,7 @@ onValue(ref(database, userType + ' Applicants/' + id), (snapshot) => {
     requestID2 = applicantDetails.requestID
     applicantSpecificVal = applicantDetails.commuterType
 
-    verificationNote.innerHTML = 'Approve ' + applicantDetails.firstName + ' as a new ' + applicantDetails.commuterType + '?'
+    verificationNote.innerHTML = 'Approve ' + applicantName + ' as a ' + applicantDetails.commuterType + '?'
 
     getDownloadURL(storageRef(storage, 'Commuter Applicants/' + snapshot.key)).then((url) => {
       documentImage1.src = url
