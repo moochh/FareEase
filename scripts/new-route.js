@@ -152,6 +152,4 @@ addRouteButton.onclick = function() {
   } else {
     console.log('not update')
   }
-
-  console.log(newRouteValues)
 }

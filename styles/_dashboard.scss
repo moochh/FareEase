@@ -1,5 +1,11 @@
 #dashboard-body {
   overflow: hidden;
+
+  .navbar-logout {
+    .navbar-item {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .navbar-container {
@@ -37,7 +43,6 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-
 }
 
 .navbar-logout {
@@ -47,7 +52,7 @@
   transform: translateY(-100%);
 
   .navbar-item {
-    padding-bottom: 0;
+    padding-bottom: 0px;
   }
 }
 

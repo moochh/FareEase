@@ -70,6 +70,9 @@
 #dashboard-body {
   overflow: hidden;
 }
+#dashboard-body .navbar-logout .navbar-item {
+  margin-bottom: 0;
+}
 
 .navbar-container {
   height: 100vh;
@@ -114,7 +117,7 @@
   transform: translateY(-100%);
 }
 .navbar-logout .navbar-item {
-  padding-bottom: 0;
+  padding-bottom: 0px;
 }
 
 .navbar-item {
@@ -1137,6 +1140,9 @@
   flex: 1;
   height: 100%;
 }
+.application-documents-container a {
+  height: 100%;
+}
 .application-documents-container .document-image-container {
   position: relative;
 }
@@ -1320,6 +1326,8 @@ body {
   width: 100vw;
   display: flex;
   flex-direction: row;
+  top: 0;
+  padding-top: 30px;
 }
 
 ::-webkit-scrollbar {
