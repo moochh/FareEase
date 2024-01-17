@@ -33,6 +33,8 @@ onValue(reference, (snapshot => {
 
   transactionList.innerHTML = ''
 
+  i = snapshot.child('Admin Transaction History').size
+
   snapshot.child('Admin Transaction History').forEach((childSnapshot) => {
     const transactionDetails = childSnapshot.val()
 
@@ -50,9 +52,9 @@ onValue(reference, (snapshot => {
     '<p> ₱' + (transactionDetails.amount * 1).toLocaleString("en-US") +  '</p>' +
     '</div>'
 
-    transactionList.appendChild(transactionItem)
+    transactionList.insertBefore(transactionItem, transactionList.firstChild)
 
-    i++
+    i--
   })
 
   var endOfList = document.createElement("div")

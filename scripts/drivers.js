@@ -19,7 +19,12 @@ const database = getDatabase(app);
 const reference = ref(database)
 
 const date = new Date();
-const monthToday = date.getMonth() + 1
+var monthToday = date.getMonth() + 1
+
+if (monthToday < 10) {  
+  monthToday = "0" + monthToday;
+}
+
 var currentDay = date.getDate() + '-' + monthToday + '-' + date.getFullYear()
 
 var driverList = document.getElementById("driverList")

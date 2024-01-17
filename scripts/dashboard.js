@@ -21,6 +21,17 @@ const reference = ref(database)
 const userCount = document.getElementById('userCount')
 const driverCount = document.getElementById('driverCount')
 
+const date = new Date();
+var monthToday = date.getMonth() + 1
+
+if (monthToday < 10) {  
+  monthToday = "0" + monthToday;
+}
+
+var currentDay = date.getDate() + '-' + monthToday + '-' + date.getFullYear()
+
+console.log(currentDay)
+
 onValue(reference, (snapshot) => {
   userCount.innerHTML = snapshot.child('Users').size
   driverCount.innerHTML = snapshot.child('Drivers').size
@@ -41,10 +52,6 @@ onValue(reference, (snapshot) => {
 })
 
 // Driver List
-
-const date = new Date();
-const monthToday = date.getMonth() + 1
-var currentDay = date.getDate() + '-' + monthToday + '-' + date.getFullYear()
 
 var driverList = document.getElementById("driverList")
 
